@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensorion — Analyse & Perspectives 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#04080a;--surface:#090f12;--surface2:#0e1a20;--border:#142030;--accent:#22d3ee;--green:#34d399;--purple:#c084fc;--warn:#fbbf24;--danger:#f87171;--text:#c0cfe0;--heading:#e8f4ff;--muted:#2d5060}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;font-size:14.5px;line-height:1.7;padding:28px 18px 60px}
+.wrap{max-width:900px;margin:0 auto}
+.hero{background:linear-gradient(135deg,#090f12,#0a1520);border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:14px;padding:26px 28px 22px;margin-bottom:24px;position:relative;overflow:hidden}
+.hero::before{content:'👂';position:absolute;right:28px;top:50%;transform:translateY(-50%);font-size:80px;opacity:.06;pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.28);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:23px;font-weight:900;color:var(--heading);line-height:1.25;margin-bottom:10px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted)}
+.alert{border-radius:12px;padding:18px 20px;margin-bottom:14px}
+.ag{background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.28)}
+.ag .at{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.ag p{color:#a7f3d0;font-size:13.5px;margin-bottom:6px}
+.aw{background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.28)}
+.aw .at{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--danger);margin-bottom:8px}
+.aw p{color:#fca5a5;font-size:13.5px;margin-bottom:6px}
+.ao{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.28)}
+.ao .at{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--warn);margin-bottom:8px}
+.ao p{color:#fde68a;font-size:13.5px;margin-bottom:6px}
+.alert p:last-child{margin-bottom:0}
+strong{color:var(--heading);font-weight:700}
+.slbl{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.slbl::after{content:'';flex:1;height:1px;background:var(--border)}
+.kg{display:grid;grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:10px;margin-bottom:28px}
+.kpi{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.kl{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.kv{font-family:'JetBrains Mono',monospace;font-size:18px;font-weight:600;color:var(--heading);margin-bottom:3px}
+.kd{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700}
+.kd.up{color:var(--green)}.kd.warn{color:var(--warn)}.kd.blue{color:var(--accent)}.kd.red{color:var(--danger)}.kd.p{color:var(--purple)}
+.ks{font-size:10.5px;color:var(--muted);margin-top:2px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:12px}
+.card h3{font-size:14.5px;font-weight:700;color:var(--heading);margin-bottom:11px;display:flex;align-items:center;gap:9px}
+.card h3 .ic{width:26px;height:26px;border-radius:6px;background:rgba(34,211,238,.12);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.card p{color:#7a9fb0;margin-bottom:9px;font-size:14px}
+.card p:last-child{margin-bottom:0}
+.hl{color:var(--green);font-weight:600}.hlb{color:var(--accent);font-weight:600}.hlw{color:var(--warn);font-weight:600}.hlr{color:var(--danger);font-weight:600}.hlp{color:var(--purple);font-weight:600}
+.dt{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+.dt th{text-align:left;padding:8px 10px;background:var(--surface2);color:var(--muted);font-size:10.5px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.dt td{padding:8px 10px;border-bottom:1px solid var(--border);color:#7a9fb0}
+.dt tr:last-child td{border-bottom:none}
+.dt td:first-child{color:var(--heading);font-weight:600}
+.dt td.g{color:var(--green);font-family:'JetBrains Mono',monospace;font-weight:700}
+.dt td.b{color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:700}
+.dt td.w{color:var(--warn);font-family:'JetBrains Mono',monospace;font-weight:700}
+.dt td.r{color:var(--danger);font-family:'JetBrains Mono',monospace;font-weight:700}
+.dt td.p{color:var(--purple);font-family:'JetBrains Mono',monospace;font-weight:700}
+.ul{list-style:none;padding:0}
+.ul li{padding:4px 0 4px 20px;position:relative;color:#7a9fb0;font-size:14px}
+.ul li::before{content:'→';position:absolute;left:0;color:var(--green);font-weight:700}
+.ul li.risk::before{content:'⚠';color:var(--danger);font-size:11px;top:6px}
+.ul li.neu::before{content:'◆';color:var(--accent);font-size:9px;top:7px}
+.frow{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border)}
+.frow:last-child{border-bottom:none}
+.flvl{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);width:70px}
+.fprice{font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:600;color:var(--heading);width:70px}
+.fbar{flex:1;height:4px;background:var(--surface2);border-radius:2px;overflow:hidden}
+.fbar-fill{height:100%;border-radius:2px}
+.ftag{width:120px;text-align:right}
+.tag{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:700}
+.tg{background:rgba(52,211,153,.12);color:var(--green)}
+.tb{background:rgba(34,211,238,.12);color:var(--accent)}
+.tw{background:rgba(251,191,36,.12);color:var(--warn)}
+.tr{background:rgba(248,113,113,.12);color:var(--danger)}
+.tp{background:rgba(192,132,252,.12);color:var(--purple)}
+.tl{position:relative;padding-left:20px}
+.tl::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--border)}
+.tli{position:relative;padding-bottom:16px}
+.tli:last-child{padding-bottom:0}
+.tld{position:absolute;left:-18px;top:5px;width:10px;height:10px;border-radius:50%;border:2px solid var(--accent);background:var(--bg)}
+.tld.g{border-color:var(--green)}.tld.w{border-color:var(--warn)}.tld.r{border-color:var(--danger)}.tld.p{border-color:var(--purple)}
+.tldate{font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--accent);font-weight:600;margin-bottom:2px}
+.tllbl{font-size:13.5px;color:var(--heading);font-weight:600}
+.tldesc{font-size:12.5px;color:var(--muted);margin-top:2px}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+@media(max-width:600px){.pg{grid-template-columns:1fr}}
+.pc{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px}
+.pc .hz{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.pc h4{font-size:13px;color:var(--heading);margin-bottom:6px}
+.pc ul{list-style:none;padding:0}
+.pc ul li{font-size:12.5px;color:var(--muted);padding:3px 0 3px 12px;position:relative}
+.pc ul li::before{content:'·';position:absolute;left:0;font-weight:900;font-size:16px;top:-1px}
+.verdict{background:linear-gradient(135deg,rgba(34,211,238,.05),rgba(52,211,153,.04));border:1px solid rgba(34,211,238,.2);border-radius:12px;padding:22px}
+.verdict .vt{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.verdict p{color:#7a9fb0;margin-bottom:9px;font-size:14px}
+.verdict p:last-child{margin-bottom:0}
+.verdict .conclu{font-size:14.5px;font-weight:600;color:var(--heading);border-top:1px solid var(--border);padding-top:13px;margin-top:13px}
+.gap{height:26px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <div class="hero-badge">🧬 Analyse Forum · ALSEN · Euronext Growth · PEA-PME</div>
+  <h1>Sensorion — Analyse Fondamentale &amp; Technique<br>+ Perspectives CT / MT / LT</h1>
+  <div class="hero-meta">
+    <span>📅 01 mars 2026</span>
+    <span>💶 Cours ~0,363 € (+3,13%)</span>
+    <span>👂 Thérapie génique — surdité · Institut Pasteur</span>
+    <span>⚠️ NPC — pas un conseil en investissement</span>
+  </div>
+</div>
+
+<div class="alert aw">
+  <div class="at">🏆 News stratégique majeure — 28 janvier 2026 : Sanofi entre au capital à hauteur de 20 M€</div>
+  <p><strong>Sensorion a réalisé une levée de fonds de 60 M€ menée par Sanofi</strong>, qui devient actionnaire stratégique à hauteur de <strong>13,9% du capital</strong>. C'est la news la plus importante de l'histoire récente de la société : un géant mondial de la pharmacie — spécialiste notamment des maladies rares et de l'audition (Dupixent pour les polypes nasaux avec composante auditive) — valide scientifiquement le pipeline de thérapie génique de Sensorion en y mettant sa propre réputation.</p>
+  <p>L'offre a été réalisée au prix de <strong>0,28 €/action</strong> avec émission de 214 millions d'actions nouvelles (~71% du capital pré-opération). Aux côtés de Sanofi : Redmile Group (16,5%), Artal/Invus (20,2%), Sofinnova Partners (12,6%) et de nouveaux fonds américains spécialisés santé — Cormorant Asset Management, Coastlands Capital et Sphera Healthcare. La trésorerie passe de 47,3 M€ (31/12/2025) à <strong>~107 M€ post-levée, finançant les activités jusqu'au S1 2027</strong>.</p>
+</div>
+<div class="alert aw">
+  <div class="at">⚠️ News — 17 février 2026 : départ de la DG Nawal Ouzren</div>
+  <p><strong>Nawal Ouzren quitte ses fonctions de Directrice Générale pour des raisons personnelles</strong>, trois semaines après la levée menée par Sanofi. Amit Munshi (ex-PDG Arena Pharma, Président du CA) assure l'intérim. Ce départ, bien que surprise, intervient <em>après</em> la sécurisation du financement — ce qui signifie que Sanofi et les co-investisseurs avaient une pleine connaissance de la situation avant de s'engager. Le pipeline et l'équipe scientifique restent intacts.</p>
+</div>
+
+<div class="alert ag">
+  <div class="at">✅ Données cliniques SENS-501 — signal d'amélioration auditive</div>
+  <p><strong>Le SENS-501 (OTOF-GT) a montré des signes prometteurs d'amélioration auditive dans la cohorte 2 (dose haute)</strong> de l'essai Audiogene Phase 1/2. Les données de suivi à 6 mois de la cohorte 2 sont attendues au <strong>T1 2026</strong>. C'est le programme phare — le seul traitement potentiel de la surdité totale liée au gène OTOF chez les nourrissons.</p>
+</div>
+
+<div class="slbl">Chiffres clés — S1 2025 (au 30 juin 2025)</div>
+<div class="kg">
+  <div class="kpi"><div class="kl">Trésorerie S1 2025</div><div class="kv">57,1 M€</div><div class="kd up">▲ vs 37 M€ fin 2023</div><div class="ks">finançait jusqu'au Q3 2026</div></div>
+  <div class="kpi"><div class="kl">Trésorerie post-levée</div><div class="kv">~107 M€</div><div class="kd up">▲ +60 M€ Sanofi+co</div><div class="ks">horizon S1 2027 ✓</div></div>
+  <div class="kpi"><div class="kl">Perte nette S1 2025</div><div class="kv">-16 M€</div><div class="kd warn">~32 M€/an</div><div class="ks">cash-burn stable vs 2024</div></div>
+  <div class="kpi"><div class="kl">R&amp;D S1 2025</div><div class="kv">15 M€</div><div class="kd blue">100% CA = R&amp;D</div><div class="ks">biotech pré-commerciale</div></div>
+  <div class="kpi"><div class="kl">Tréso avant levée (31/12)</div><div class="kv">47,3 M€</div><div class="kd warn">puis +60 M€ levée Sanofi</div><div class="ks">→ ~107 M€ post jan. 2026</div></div>
+  <div class="kpi"><div class="kl">Données SENS-501 C2</div><div class="kv">T1 2026</div><div class="kd p">attendues imminentes</div><div class="ks">suivi 6 mois cohorte 2</div></div>
+</div>
+
+<div class="gap"></div>
+<div class="slbl">Présentation — qui est Sensorion ?</div>
+<div class="card">
+  <h3><span class="ic">🔬</span> La biotech montpelliéraine spécialisée dans la surdité — partenaire de l'Institut Pasteur</h3>
+  <p>Fondée en 2009 à Montpellier, <strong>Sensorion développe des thérapies innovantes pour traiter les troubles auditifs</strong> — un domaine médical longtemps délaissé par l'industrie pharmaceutique. La société opère en collaboration stratégique avec l'<strong>Institut Pasteur</strong> sur la génétique de l'audition, ce qui lui confère un accès privilégié à des découvertes scientifiques de premier plan.</p>
+  <table class="dt">
+    <tr><th>Programme</th><th>Cible</th><th>Phase</th></tr>
+    <tr><td>SENS-501 (OTOF-GT)</td><td style="color:#7a9fb0;font-size:12px">Surdité congénitale — mutations gène OTOF (otoferline)</td><td class="g">Phase 1/2 · Audiogene ✓</td></tr>
+    <tr><td>SENS-601 (GJB2-GT)</td><td style="color:#7a9fb0;font-size:12px">Surdité congénitale + presbyacousie adulte — mutations GJB2</td><td class="b">Pré-clinique → CTA T1 2026</td></tr>
+    <tr><td>SENS-401 (Arazasetron)</td><td style="color:#7a9fb0;font-size:12px">Ototoxicité cisplatine (NOTOXIS) · Cochléaire (COCHLEAR)</td><td class="w">Phase 2a — résultats à venir</td></tr>
+  </table>
+  <p style="margin-top:8px">Le marché de la perte auditive est massif et très sous-adressé thérapeutiquement : <span class="hlb">466 millions de personnes dans le monde souffrent de déficience auditive invalidante</span>. Les formes génétiques héréditaires (OTOF, GJB2) touchent des enfants à la naissance — et la thérapie génique est la seule approche capable de restaurer une audition fonctionnelle.</p>
+</div>
+
+<div class="gap"></div>
+<div class="slbl">Les programmes cliniques — état des lieux précis</div>
+
+<div class="card">
+  <h3><span class="ic">🧬</span> SENS-501 — le programme phare, des données prometteuses</h3>
+  <p>L'essai <strong>Audiogene (Phase 1/2)</strong> évalue la thérapie génique SENS-501 chez des nourrissons et jeunes enfants (6-31 mois) atteints de surdité totale congénitale liée au gène OTOF. Ce gène est essentiel à la transmission des signaux entre les cellules ciliées de l'oreille et le nerf auditif.</p>
+  <ul class="ul">
+    <li>Cohorte 1 (dose faible) : <span class="hl">signal d'amélioration auditive observé</span> chez au moins un patient — premier signal positif de l'histoire de la thérapie génique auditive en Europe</li>
+    <li class="neu">Cohorte 2 (dose haute) : recrutement terminé — <span class="hlb">données suivi 6 mois attendues au T1 2026</span></li>
+    <li class="neu">Si cohorte 2 confirme l'efficacité → cohorte d'expansion à la dose sélectionnée</li>
+    <li class="risk">Compétition internationale : Akouos (Eli Lilly), Decibel Therapeutics — mais Sensorion a des données positives en avance</li>
+  </ul>
+  <p style="margin-top:8px">Le contexte mondial est très favorable : aux <strong>États-Unis, la FDA a accordé l'approbation accélérée (AA) au OTOF-GT d'Akouos/Eli Lilly</strong> début 2026 — ce qui <span class="hlp">valide scientifiquement et réglementairement l'approche thérapeutique</span> pour toute la classe. Cela crée un précédent réglementaire qui bénéficiera directement à Sensorion pour ses demandes futures.</p>
+</div>
+
+<div class="card">
+  <h3><span class="ic">💊</span> SENS-401 — résultats NOTOXIS attendus (S2 2025 → en retard ?)</h3>
+  <p>Le programme SENS-401 (Arazasetron) est une petite molécule orale ciblant l'ototoxicité induite par le cisplatine (chimiothérapie). L'étude NOTOXIS (Phase 2a) a terminé son recrutement en mars 2025. Les résultats principaux étaient attendus <span class="hlw">avant fin 2025</span> — mais aucune publication n'a encore été annoncée à la date de cette analyse.</p>
+  <p><strong>C'est un point de vigilance :</strong> si les données NOTOXIS tardent ou sont décevantes, ce programme pourrait être déprioritisé au profit des thérapies géniques — ce qui semble déjà être la direction stratégique prise par Sensorion.</p>
+</div>
+
+<div class="card">
+  <h3><span class="ic">🧪</span> SENS-601 (GJB2-GT) — la prochaine étape clinique</h3>
+  <p>Le GJB2 est <span class="hl">la mutation génétique la plus fréquente de surdité congénitale</span> — responsable d'environ 50% des cas de surdité héréditaire autosomique récessive non syndromique. GJB2 est également impliqué dans des formes précoces de presbyacousie sévère chez l'adulte — un marché potentiellement très large.</p>
+  <p>Sensorion vise la soumission de la demande d'autorisation d'essai clinique (CTA) pour SENS-601 au <strong>T1 2026</strong>. Ce programme bénéficie directement des enseignements d'Audiogene (SENS-501) — notamment le système d'administration intra-cochléaire propriétaire développé par Sensorion.</p>
+</div>
+
+<div class="gap"></div>
+<div class="slbl">Départ de la DG &amp; changement de direction — analyse froide</div>
+<div class="card">
+  <h3><span class="ic">⚠️</span> Nawal Ouzren quitte la DG — comment interpréter l'événement ?</h3>
+  <p>Le départ surprise de Nawal Ouzren le <strong>17 février 2026</strong> "pour des raisons personnelles, incompatibles avec l'exercice des fonctions de Directrice Générale" mérite une lecture nuancée :</p>
+  <table class="dt">
+    <tr><th>Lecture pessimiste</th><th>Lecture optimiste</th></tr>
+    <tr><td style="color:#fca5a5;font-size:12px">Départ précipité et non planifié</td><td style="color:#a7f3d0;font-size:12px">Sanofi (13,9%) + fonds US spécialisés = validation scientifique du 1er ordre</td></tr>
+    <tr><td style="color:#fca5a5;font-size:12px">Instabilité de direction à moment critique</td><td style="color:#a7f3d0;font-size:12px">Amit Munshi = CEO expérimenté du secteur biotech (ancien PDG Arena Pharma)</td></tr>
+    <tr><td style="color:#fca5a5;font-size:12px">Incertitude sur la stratégie à CT</td><td style="color:#a7f3d0;font-size:12px">Runway prolongé à S1 2027 — plus de marge pour recruter le bon profil</td></tr>
+    <tr><td style="color:#fca5a5;font-size:12px">Pression sur le cours (overhang)</td><td style="color:#a7f3d0;font-size:12px">Les données cliniques sont scientifiquement indépendantes du management</td></tr>
+  </table>
+  <p style="margin-top:10px"><strong>Le point crucial :</strong> les données cliniques SENS-501 cohorte 2, qui seront publiées au T1 2026, ont été générées sous l'ancienne direction et l'équipe scientifique reste en place. <span class="hl">Le destin de Sensorion se joue dans les données, pas dans le DG.</span></p>
+</div>
+
+<div class="gap"></div>
+<div class="slbl">Calendrier — jalons clés T1-T2 2026</div>
+<div class="card">
+  <h3><span class="ic">📌</span> Roadmap clinique &amp; financière</h3>
+  <div class="tl">
+    <div class="tli">
+      <div class="tld r"></div>
+      <div class="tldate">17 FÉV. 2026</div>
+      <div class="tllbl">Départ DG Nawal Ouzren — intérim Amit Munshi <span class="tag tr">SURPRISE</span></div>
+      <div class="tldesc">Motif personnel. Recrutement nouveau DG initié. Amit Munshi : ex-PDG Arena Pharma, habitué des biotech en transformation. Levée de fonds annoncée simultanément.</div>
+    </div>
+    <div class="tli">
+      <div class="tld g"></div>
+      <div class="tldate">28 JAN. 2026 ✅</div>
+      <div class="tllbl">Levée 60 M€ menée par Sanofi — entrée à 13,9% du capital <span class="tag tg">CATALYSEUR STRATÉGIQUE</span></div>
+      <div class="tldesc">Sanofi (20 M€) + Redmile, Artal, Sofinnova + Cormorant, Coastlands, Sphera. Prix : 0,28 €/action. 214 M nouvelles actions (~71% pré-opération). Trésorerie : 47,3 M€ → ~107 M€. Financement S1 2027 sécurisé. Validation stratégique du pipeline par un géant mondial du pharma.</div>
+    </div>
+    <div class="tli">
+      <div class="tld p"></div>
+      <div class="tldate">T1 2026 · IMMINENT</div>
+      <div class="tllbl">Données suivi 6 mois SENS-501 cohorte 2 (dose haute) <span class="tag tp">CATALYSEUR #1</span></div>
+      <div class="tldesc">C'est LE catalyseur à court terme. Si la dose haute confirme et améliore le signal d'efficacité de la cohorte 1, c'est un bond en avant pour le programme. Données ABR (auditory brainstem response).</div>
+    </div>
+    <div class="tli">
+      <div class="tld"></div>
+      <div class="tldate">T1 2026</div>
+      <div class="tllbl">CTA SENS-601 (GJB2-GT) — soumission demande essai clinique <span class="tag tb">ATTENDU</span></div>
+      <div class="tldesc">Ouverture du 2ème programme de thérapie génique. GJB2 = forme la plus fréquente de surdité génétique (~50% des cas héréditaires).</div>
+    </div>
+    <div class="tli">
+      <div class="tld w"></div>
+      <div class="tldate">2026</div>
+      <div class="tllbl">Résultats NOTOXIS (SENS-401) — attendus depuis fin 2025 <span class="tag tw">EN RETARD ?</span></div>
+      <div class="tldesc">Ototoxicité induite par le cisplatine. Recrutement terminé en mars 2025. Données non encore publiées à date. Point à surveiller.</div>
+    </div>
+    <div class="tli">
+      <div class="tld"></div>
+      <div class="tldate">2026</div>
+      <div class="tllbl">Recrutement nouveau Directeur Général permanent <span class="tag tw">EN COURS</span></div>
+      <div class="tldesc">Nouveau profil attendu — probablement un CEO commercial expérimenté pour préparer l'étape de la commercialisation si SENS-501 progresse.</div>
+    </div>
+  </div>
+</div>
+
+<div class="gap"></div>
+<div class="slbl">Analyse technique — Graphique 1 semaine</div>
+<div class="card">
+  <h3><span class="ic">📈</span> Cours 0,363 € — consolidation sur support horizontal · RSI 53,68</h3>
+  <p>Le graphique hebdomadaire montre une action qui a connu plusieurs cycles violents (pic à 1 €+ fin 2023, chute, rebond, etc.) et évolue depuis mi-2025 dans un <strong>couloir de consolidation serré entre 0,29 € et 0,52 €</strong>. Le cours actuel de 0,363 € se situe en zone de support intermédiaire.</p>
+
+  <div style="margin:14px 0">
+    <div class="frow"><div class="flvl">Résist. 2</div><div class="fprice" style="color:var(--danger)">0,516 €</div><div class="fbar"><div class="fbar-fill" style="width:100%;background:var(--danger)"></div></div><span class="ftag"><span class="tag tr">résist. forte</span></span></div>
+    <div class="frow"><div class="flvl">Résist. 1</div><div class="fprice" style="color:var(--warn)">0,400 €</div><div class="fbar"><div class="fbar-fill" style="width:65%;background:var(--warn)"></div></div><span class="ftag"><span class="tag tw">R1 proche</span></span></div>
+    <div class="frow" style="background:rgba(34,211,238,.04);border-radius:6px;padding:7px 4px"><div class="flvl" style="color:var(--accent)">COURS</div><div class="fprice" style="color:var(--accent)">0,363 €</div><div class="fbar"><div class="fbar-fill" style="width:50%;background:var(--accent)"></div></div><span class="ftag"><span class="tag tb">cours actuel</span></span></div>
+    <div class="frow"><div class="flvl">Support 1</div><div class="fprice">0,330 €</div><div class="fbar"><div class="fbar-fill" style="width:30%;background:var(--green)"></div></div><span class="ftag"><span class="tag tg">S1</span></span></div>
+    <div class="frow"><div class="flvl">Support 2</div><div class="fprice">0,291 €</div><div class="fbar"><div class="fbar-fill" style="width:15%;background:#475569"></div></div><span class="ftag"><span class="tag tp">S2 plancher</span></span></div>
+  </div>
+
+  <div style="background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.25);border-radius:8px;padding:14px 16px;margin:12px 0">
+    <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:8px">✅ Signal technique neutre-positif — RSI 53,68 · MACD +0,018</div>
+    <p style="color:#a7f3d0;margin-bottom:6px;font-size:13.5px">Le RSI hebdomadaire à <strong style="color:#d1fae5">53,68</strong> est en zone neutre haussière — ni survendu ni suracheté. Le MACD Zéro Lag à <strong style="color:#d1fae5">+0,018</strong> reste légèrement positif. Le volume de 14M sur la dernière bougie hebdo est en hausse notable — signal d'un regain d'intérêt des investisseurs.</p>
+    <p style="color:#a7f3d0;margin-bottom:0;font-size:13.5px">Le cours évolue dans un range compressé depuis 6+ mois — signe de <strong style="color:#d1fae5">coiling</strong> (compression avant un mouvement directionnel fort). La publication des données SENS-501 cohorte 2 sera le déclencheur du prochain mouvement.</p>
+  </div>
+
+  <p>La <strong>résistance immédiate est à 0,40 €</strong> — son franchissement ouvrirait la voie vers <span class="hlw">0,516 €</span> (précédent plus haut du range). Le <strong>support clé à ne pas perdre est 0,291 €</strong> (plancher du range). Toute donnée clinique positive pourrait déclencher un mouvement haussier violent sur un titre aussi compressé et peu liquide.</p>
+</div>
+
+<div class="gap"></div>
+<div class="slbl">Perspectives CT / MT / LT</div>
+<div class="pg">
+  <div class="pc">
+    <div class="hz" style="color:var(--accent)">🕐 CT · 0-3 mois</div>
+    <h4>Catalyseurs</h4>
+    <ul>
+      <li>Données SENS-501 cohorte 2 (6 mois)</li>
+      <li>Soumission CTA SENS-601 (GJB2-GT)</li>
+      <li>Publication données NOTOXIS</li>
+      <li>Annonce nouveau DG permanent</li>
+    </ul>
+    <h4 style="margin-top:10px;color:var(--warn)">Risques CT</h4>
+    <ul>
+      <li>Données C2 décevantes → chute sévère</li>
+      <li>Incertitude direction (DG intérim)</li>
+      <li>Faible liquidité → forte volatilité</li>
+    </ul>
+  </div>
+  <div class="pc">
+    <div class="hz" style="color:var(--green)">📅 MT · 3-18 mois</div>
+    <h4>Moteurs</h4>
+    <ul>
+      <li>Cohorte d'expansion SENS-501 (dose sélectionnée)</li>
+      <li>Premiers patients SENS-601 (GJB2)</li>
+      <li>Précédent FDA Akouos/Lilly → voie régl. validée</li>
+      <li>Nouveau DG avec profil commercial</li>
+      <li>Partenariats / licences possibles sur SENS-401</li>
+    </ul>
+    <h4 style="margin-top:10px;color:var(--warn)">Risques MT</h4>
+    <ul>
+      <li>Levées de fonds dilutives supplémentaires</li>
+      <li>Compétition Akouos (Eli Lilly) sur OTOF</li>
+      <li>Exécution clinique avec effectifs limités</li>
+    </ul>
+  </div>
+  <div class="pc">
+    <div class="hz" style="color:var(--purple)">🔭 LT · 18 mois+</div>
+    <h4>Thèse haussière</h4>
+    <ul>
+      <li>Autorisation AMM SENS-501 si données Phase 2/3 solides</li>
+      <li>GJB2 : plus grand marché de la surdité génétique</li>
+      <li>SENS-401 : petite molécule orale — modèle commercial simple</li>
+      <li>Partenariat / acquisition par un grand pharma</li>
+      <li>466 M de personnes malentendantes dans le monde</li>
+    </ul>
+    <h4 style="margin-top:10px;color:var(--danger)">Risques LT</h4>
+    <ul>
+      <li>Échec clinique SENS-501 Phase 2/3</li>
+      <li>Dilution cumulative importante</li>
+      <li>Compétition des géants pharma (Lilly, Novartis)</li>
+      <li>Prix / remboursement thérapies géniques</li>
+    </ul>
+  </div>
+</div>
+
+<div class="gap"></div>
+<div class="slbl">Mon avis personnel</div>
+<div class="verdict">
+  <div class="vt">💬 Verdict</div>
+  <p>Sensorion est un dossier <strong>d'optionalité thérapeutique pure</strong> — très risqué, très binaire, mais avec un potentiel asymétrique significatif si les données cliniques confirment l'efficacité de la thérapie génique. Le marché de la surdité est immense, scientifiquement validé (FDA Akouos/Lilly), et quasi-vierge thérapeutiquement.</p>
+  <p>Ce qui me semble intéressant :</p>
+  <ul class="ul" style="margin:8px 0">
+    <li>Le <span class="hl">signal positif de la cohorte 1</span> (SENS-501) est réel et publié — ce n'est pas une hypothèse</li>
+    <li>L'<span class="hl">entrée de Sanofi à 13,9% du capital (20 M€)</span> est la validation la plus forte possible — Sanofi ne prend pas une telle participation sans due diligence scientifique approfondie. La levée a précédé le départ de la DG : les investisseurs savaient</li>
+    <li>Le <span class="hlp">précédent FDA Akouos/Eli Lilly</span> valide l'approche OTOF-GT et ouvre la voie réglementaire pour tout le secteur</li>
+    <li>La <span class="hlb">collaboration Institut Pasteur</span> est un avantage scientifique structurel difficile à répliquer</li>
+  </ul>
+  <p><strong>Le risque principal et immédiat :</strong> le départ de la DG crée une incertitude de gouvernance à un moment charnière. Amit Munshi est compétent (ex-Arena Pharma) mais c'est un intérim. La nomination rapide d'un nouveau DG permanent avec un profil commercial serait un signal fort positif.</p>
+  <div class="conclu">
+    🎯 En résumé : <strong>dossier très spéculatif, réservé à une fraction de portefeuille, mais avec un catalyseur majeur imminent.</strong> RSI neutre 53,68, coiling technique depuis 6 mois. <span style="color:var(--warn);font-weight:600">Support clé : 0,291 €. Résistances : 0,40 € → 0,516 €. Catalyseur #1 et déterminant : données SENS-501 cohorte 2 au T1 2026.</span> Une donnée positive pourrait déclencher un mouvement de +50-100% sur ce type de titre compressé.
+  </div>
+</div>
+
+<div style="margin-top:20px;padding:12px;background:var(--surface);border-radius:8px;font-size:11.5px;color:var(--muted);text-align:center;border:1px solid var(--border)">
+  Sources : Communiqués Sensorion (17/02/2026, 17/09/2025, 13/03/2025), BusinessWire, Webdisclosure, Yahoo Finance · Analyse personnelle non professionnelle · Ne constitue pas un conseil en investissement · DYOR
+</div>
+
+</div>
+</body>
+</html>
