@@ -627,7 +627,7 @@
     <div class="hero-meta">
       <div class="meta-item">
         <span class="meta-label">Date d'analyse</span>
-        <span class="meta-value">14 mars 2026</span>
+        <span class="meta-value">14 mars 2026 <span style="color:var(--yellow);font-size:11px;">· Màj technique 15/03</span></span>
       </div>
       <div class="meta-item">
         <span class="meta-label">Cours · PRT 13/03/2026</span>
@@ -1027,99 +1027,92 @@
       </div>
     </div>
 
-    <!-- Fibonacci visual -->
+    <!-- Fibonacci visual — LOG SCALE (mis à jour 15/03/2026) -->
     <h3 style="color:var(--text-dim); font-size:13px; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px; font-family:'JetBrains Mono', monospace;">
-      FIBONACCI · Move de référence PRT : Plancher ~0,158€ (0%) → Plus haut 1,053€ (100%)
+      FIBONACCI LOG · PRT : Plancher 0,159€ (0%) → Plus haut 1,053€ (100%) — <span style="color:var(--yellow);">Échelle logarithmique ✓</span>
     </h3>
 
     <!-- Verification block -->
     <div class="warn-box" style="margin-bottom:16px;">
-      <strong>✅ Vérification mathématique des niveaux affichés sur le graphique PRT :</strong><br>
-      Move = 1,053 – 0,158 = <strong>0,895€</strong><br>
-      23,6% = 0,158 + (0,895 × 0,236) = 0,158 + 0,211 = <strong>0,369€ ≈ 0,37€</strong> ✓<br>
-      38,2% = 0,158 + (0,895 × 0,382) = 0,158 + 0,342 = <strong>0,500€ ≈ 0,501€</strong> ✓<br>
-      50,0% = 0,158 + (0,895 × 0,500) = 0,158 + 0,448 = <strong>0,606€</strong> ✓<br>
-      61,8% = 0,158 + (0,895 × 0,618) = 0,158 + 0,553 = <strong>0,711€</strong> ✓<br>
-      → <strong>Tracé PRT cohérent et mathématiquement exact.</strong>
+      <strong>✅ Vérification mathématique — Échelle LOGARITHMIQUE (mise à jour 15/03/2026) :</strong><br>
+      log(0,159) = −0,7986 · log(1,053) = +0,0224 · Range log = <strong>0,8210</strong><br>
+      23,6% = 10^(−0,7986 + 0,236×0,8210) = 10^(−0,6046) = <strong>0,248€ ✓ (PRT exact)</strong><br>
+      38,2% = 10^(−0,7986 + 0,382×0,8210) = 10^(−0,4850) = <strong>0,327€ ✓ (PRT exact)</strong><br>
+      50,0% = 10^(−0,7986 + 0,500×0,8210) = 10^(−0,3881) = <strong>0,409€ ✓ (PRT exact)</strong><br>
+      61,8% = 10^(−0,7986 + 0,618×0,8210) = 10^(−0,2905) = <strong>0,511€ ✓ (PRT exact)</strong><br>
+      76,4% = 10^(−0,7986 + 0,764×0,8210) = 10^(−0,1714) = <strong>0,673€ (calculé · non labellisé PRT)</strong><br>
+      → <strong>Tracé PRT en échelle logarithmique · 100% cohérent · Correction vs analyse initiale (échelle linéaire erronée)</strong>
     </div>
 
     <div class="fib-bars">
-      <!-- 0% -->
       <div class="fib-row">
         <div class="fib-label" style="color:var(--red);">0 % · Base</div>
-        <div class="fib-bar-bg"><div class="fib-bar-fill" style="width:4%;background:var(--red);"></div></div>
-        <div class="fib-price" style="color:var(--red);">~0,158 €</div>
+        <div class="fib-bar-bg"><div class="fib-bar-fill" style="width:3%;background:var(--red);"></div></div>
+        <div class="fib-price" style="color:var(--red);">0,159 €</div>
       </div>
-
-      <!-- 23,6% = 0,370 -->
       <div class="fib-row">
         <div class="fib-label" style="color:var(--orange);">23,6 %</div>
         <div class="fib-bar-bg"><div class="fib-bar-fill" style="width:23.6%;background:var(--orange);"></div></div>
-        <div class="fib-price" style="color:var(--orange);">0,370 € <span style="font-size:10px;color:var(--text-muted);">✓</span></div>
+        <div class="fib-price" style="color:var(--orange);">0,248 € ✓</div>
       </div>
-
-      <!-- 38,2% = 0,501 -->
       <div class="fib-row">
         <div class="fib-label" style="color:var(--yellow);">38,2 %</div>
         <div class="fib-bar-bg"><div class="fib-bar-fill" style="width:38.2%;background:var(--yellow);"></div></div>
-        <div class="fib-price" style="color:var(--yellow);">0,501 € <span style="font-size:10px;color:var(--text-muted);">✓</span></div>
+        <div class="fib-price" style="color:var(--yellow);">0,327 € ✓</div>
       </div>
-
-      <!-- 50% = 0,606 -->
       <div class="fib-row">
         <div class="fib-label" style="color:var(--teal);">50 % · Pivot</div>
         <div class="fib-bar-bg"><div class="fib-bar-fill" style="width:50%;background:var(--teal);"></div></div>
-        <div class="fib-price" style="color:var(--teal);">0,606 € <span style="font-size:10px;color:var(--text-muted);">✓</span></div>
+        <div class="fib-price" style="color:var(--teal);">0,409 € ✓</div>
       </div>
-
-      <!-- 61,8% Golden Ratio = 0,711 — COURS ACTUEL ICI -->
       <div class="fib-row">
-        <div class="fib-label" style="color:var(--green);font-weight:700;">61,8% ★ GR</div>
+        <div class="fib-label" style="color:var(--green);font-weight:700;">61,8 % ★ GR</div>
         <div class="fib-bar-bg">
-          <div class="fib-bar-fill" style="width:61.8%;background:var(--green);opacity:0.4;"></div>
-          <!-- Cours actuel 0,660 = (0,660-0,158)/0,895 = 56,1% du move -->
-          <div class="fib-cursor" style="left:calc(56.1% - 1.5px);"></div>
+          <div class="fib-bar-fill" style="width:61.8%;background:rgba(52,211,153,0.35);"></div>
         </div>
-        <div class="fib-price" style="color:var(--green);font-weight:700;">0,711 € <span style="font-size:10px;color:var(--text-muted);">✓</span></div>
+        <div class="fib-price" style="color:var(--green);font-weight:700;">0,511 € ✓</div>
       </div>
-
-      <!-- Cours actuel 0,660 = ~56% = entre 50% et GR -->
+      <!-- Cours 0,660 = position log 75,4% — entre GR et 76,4% -->
       <div class="fib-row">
         <div class="fib-label" style="color:var(--yellow);font-weight:700;">← COURS</div>
         <div class="fib-bar-bg">
-          <div class="fib-bar-fill" style="width:56.1%;background:rgba(251,191,36,0.6);"></div>
+          <div class="fib-bar-fill" style="width:75.4%;background:rgba(251,191,36,0.55);"></div>
+          <div class="fib-cursor" style="left:calc(75.4% - 1.5px);"></div>
         </div>
-        <div class="fib-price" style="color:var(--yellow);font-weight:700;">0,660 € · ~56%</div>
+        <div class="fib-price" style="color:var(--yellow);font-weight:700;">0,660€ · ~75,4% log</div>
       </div>
-
-      <!-- 100% = 1,053 -->
+      <div class="fib-row">
+        <div class="fib-label" style="color:var(--blue);">76,4 % (calc.)</div>
+        <div class="fib-bar-bg"><div class="fib-bar-fill" style="width:76.4%;background:var(--blue);"></div></div>
+        <div class="fib-price" style="color:var(--blue);">0,673 € (résist. prochaine)</div>
+      </div>
       <div class="fib-row">
         <div class="fib-label" style="color:var(--violet);">100 % · Résist.</div>
         <div class="fib-bar-bg"><div class="fib-bar-fill" style="width:100%;background:var(--violet);"></div></div>
-        <div class="fib-price" style="color:var(--violet);">1,053 € <span style="font-size:10px;color:var(--text-muted);">✓</span></div>
+        <div class="fib-price" style="color:var(--violet);">1,053 € ✓</div>
       </div>
     </div>
 
     <div class="fib-note">
-      <strong>🔍 Positionnement exact au 13/03/2026 (cours 0,660€) :</strong> Le cours se situe à <strong>~56,1% du move de référence</strong>, soit entre le niveau 50% (0,606€) et le Golden Ratio 61,8% (0,711€). Il n'est pas <em>sur</em> un niveau Fibonacci fort, mais dans une <strong>zone intermédiaire sans support Fibonacci clair</strong> — le support naturel est le 50% à 0,606€ (en dessous), la résistance est le GR 61,8% à 0,711€ (au-dessus). Le franchissement du 61,8% = 0,711€ serait un signal haussier fort ouvrant vers le 76,4% puis le 100% (1,053€).
+      <strong>🔍 Positionnement exact au 13/03/2026 — Mise à jour log scale (15/03/2026) :</strong>
       <br><br>
-      <strong>⚠ RSI en surchauffe (76,97) :</strong> Zone >70, signal de vigilance. Un RSI hebdomadaire à 77 après un rallye de +300% depuis le plancher suggère un mouvement en extension — <b>risque de consolidation / prise de bénéfices à court terme avant la poursuite haussière.</b> Ce n'est pas un signal de retournement mais de prudence sur les entrées en momentum.
+      <b>Correction importante vs l'analyse initiale :</b> Le graphique PRT est en <strong>échelle logarithmique</strong>. Les niveaux corrects sont donc 0,248 / 0,327 / 0,409 / 0,511 (et non 0,370 / 0,501 / 0,606 / 0,711 comme calculé en linéaire). Le cours (0,660€) se situe à <strong>~75,4% du move log</strong>, soit <b>entre le GR 61,8% (0,511€) et la résistance 76,4% (0,673€) — à moins de 2% du 76,4%</b>. Le titre est en approche directe d'une résistance Fibonacci log.
       <br><br>
-      <strong>MACD Zéro Lag +0,04076 :</strong> Positif mais valeur faible relative — signal haussier maintenu, pas d'accélération majeure détectée.
+      <strong>Tableau comparatif :</strong> Linéaire → 23,6%=0,370 / 38,2%=0,501 / 50%=0,606 / 61,8%=0,711 | Log → 0,248 / 0,327 / 0,409 / 0,511 · Le log compresse les niveaux bas et les rend plus "accessibles", ce qui explique que le cours soit si avancé dans le move.
       <br><br>
-      <strong>Ichimoku (visible sur PRT) :</strong> Cours au-dessus du nuage sur la partie droite du graphique → signal haussier confirmé MT.
+      <strong>Résistance immédiate : 76,4% log = 0,673€</strong> (à +2% du cours) → franchissement = signal haussier fort vers 1,053€. Support prioritaire : GR log 0,511€ · Support secondaire : 50% log 0,409€.
       <br><br>
-      <strong>SMAs (PRT) :</strong> SMA20 = 0,541€ · Autres niveaux visibles : 0,512€ / 0,481€. Cours (0,660) au-dessus de toutes les moyennes mobiles → tendance haussière CT/MT/LT confirmée.
+      <strong>RSI 76,97 :</strong> Surchauffe (>70). <strong>MACD +0,04076 :</strong> positif. <strong>Ichimoku :</strong> cours au-dessus du nuage → haussier MT. <strong>SMAs :</strong> 0,541€ / 0,512€ / 0,431€ toutes sous le cours.
       <br><br>
-      <strong>Résistance horizontale majeure visible en rouge sur PRT : ~1,00€</strong> — niveau psychologique et technique fort à surveiller.
+      <strong>Résistance horizontale rouge PRT : ~1,00€</strong> — niveau psychologique fort qui précède la résistance Fibonacci 100% (1,053€).
     </div>
 
     <div style="margin-top:20px;">
       <div class="alert alert-yellow">
         <span class="alert-icon">⚡</span>
         <div class="alert-body">
-          <div class="alert-title">⚠ Vigilance technique : RSI hebdo 76,97 — Zone de surchauffe</div>
-          <p class="alert-text">Un RSI hebdomadaire à 76,97 sur une valeur qui vient de +318% depuis son plancher (0,158 → 0,660) signale un <b>mouvement en extension</b>. Ce n'est pas un signal de vente en soi, mais invite à la prudence sur les nouvelles entrées. Les RSI peuvent rester en zone de surchauffe longtemps sur des titres en tendance forte (cas typique des biotechs sur catalyseur). <b>Scénario de consolidation sain</b> : retour vers 0,606€ (50% Fibo) ou 0,501€ (38,2%) avant poursuite haussière vers 0,711€ et 1,053€.</p>
+          <div class="alert-title">⚠ RSI hebdo 76,97 · Cours à 2% du 76,4% Fibonacci log (0,673€) — Zone de décision</div>
+          <p class="alert-text">Le cours est en approche directe de la résistance 76,4% Fibonacci log (0,673€). RSI en surchauffe (>70). <b>Deux scénarios :</b> (1) franchissement de 0,673€ → signal haussier fort, next stop 1,053€ ; (2) rejet → consolidation saine vers 0,511€ (GR log) ou 0,409€ (50% log). Un RSI >76 sur un titre biotech en phase clinique peut rester élevé longtemps si des catalyseurs positifs tombent (NOTOXIS, données SENS-501 cohorte 2 — toujours attendus).</p>
         </div>
       </div>
     </div>
@@ -1136,12 +1129,12 @@
       <div class="section-icon" style="background:rgba(192,132,252,0.1);">🏦</div>
       <div>
         <div class="section-title">Consensus analystes</div>
-        <div class="section-sub">4 analystes identifiés · Chardan · H.C. Wainwright · Leerink · Stifel · Achat Fort unanime</div>
+        <div class="section-sub">5 analystes · Objectif consensus 1,85€ · +180% · Boursorama 15/03/2026</div>
       </div>
     </div>
 
     <div class="warn-box">
-      <strong>⚠ Note sur les objectifs de cours :</strong> Avec un cours de 0,660€ (13/03/2026) et une capi de ~360 M€ (eToro), les objectifs (1,00-2,00€) affichent un potentiel de +52% à +203%. La levée de janvier 2026 (+214 M nouvelles actions) dilue la valeur par action — certains objectifs antérieurs à la levée nécessitent une mise à jour. <strong>Note structure :</strong> Stifel Nicolaus couvre Sensorion via son acquisition de Bryan Garnier (ex-Bryan Garnier & Co, acquis le 2 juin 2025). Les notes Bryan Garnier antérieures sont continuées sous Stifel.
+      <strong>Mise à jour 15/03/2026 :</strong> L'objectif consensus Boursorama est de <strong>1,85€</strong> (5 analystes · potentiel +180,3% vs cours 0,660€). Ce chiffre est supérieur à mon estimation initiale de 1,62€ — je corrige. <em class="source">Boursorama 15/03/2026</em> La levée de janvier 2026 (+214 M nouvelles actions) dilue la valeur par action — certains objectifs antérieurs à la levée nécessitent une mise à jour. <strong>Stifel Nicolaus = ex-Bryan Garnier</strong>, acquis le 2 juin 2025. H.C. Wainwright est la seule note post-levée Sanofi confirmée (29/01/2026).
     </div>
 
     <div class="table-wrap" style="margin-top:16px;">
@@ -1198,10 +1191,10 @@
             <td><span class="tag tag-red">Identité inconnue</span></td>
           </tr>
           <tr>
-            <td colspan="2" style="font-weight:700; color:var(--text);">CONSENSUS MOYEN (Investing.com)</td>
-            <td class="td-green" style="font-weight:700;">1,62 €</td>
-            <td class="td-green" style="font-weight:700;">+145%</td>
-            <td class="td-mono" colspan="2">Source : Investing.com / EasyBourse · <em>Chardan, HC Wainwright, Leerink, Stifel</em></td>
+            <td colspan="2" style="font-weight:700; color:var(--text);">CONSENSUS (Boursorama 15/03/2026)</td>
+            <td class="td-green" style="font-weight:700;">1,85 €</td>
+            <td class="td-green" style="font-weight:700;">+180,3%</td>
+            <td class="td-mono" colspan="2">5 analystes · Source : <b>Boursorama 15/03/2026</b> · Chardan, HC Wainwright, Leerink, Stifel + 1</td>
           </tr>
         </tbody>
       </table>
@@ -1492,20 +1485,20 @@
       <span class="alert-icon">🎯</span>
       <div class="alert-body">
         <div class="alert-title">Verdict personnel : SPÉCULATIF POSITIF — Fenêtre de catalyseurs à surveiller</div>
-        <p class="alert-text">Sensorion offre un profil risque/rendement <b>asymétrique typiquement spéculatif</b> : le cours (0,660€ au 13/03) a déjà fait +318% depuis le plancher et se situe entre le 50% (0,606€) et le Golden Ratio (0,711€) du Fibonacci PRT. Le <b>franchissement et maintien au-dessus du GR 0,711€</b> serait un signal haussier fort ouvrant vers la résistance horizontale à 1,00€ puis le 100% Fibonacci à 1,053€. À contrario, le <b>RSI hebdo à 76,97 signale une extension</b> — une consolidation vers 0,606€ (50% Fibo) serait saine et représenterait une meilleure fenêtre d'entrée.
+        <p class="alert-text">Sensorion offre un profil risque/rendement <b>asymétrique typiquement spéculatif</b> : le cours (0,660€) est à <b>75,4% du move Fibonacci log</b>, entre GR (0,511€) et la résistance 76,4% (0,673€). Le franchissement de 0,673€ puis de 1,00€ (résistance rouge PRT) ouvrirait la voie vers le 100% log (1,053€). Le consensus Boursorama 15/03/2026 est à <b>1,85€ (+180%)</b> — seul H.C. Wainwright a noté post-levée Sanofi.
         <br><br>
-        <b>Position recommandée pour profil spéculatif averti :</b> Conserver si déjà en position. Pour une nouvelle entrée, attendre idéalement une consolidation sur le 50% (0,606€) ou 38,2% (0,501€). Stop-loss suggéré sous le 23,6% (0,370€) qui coïncide avec la zone de support visible sur le graphique PRT. Cette valeur n'est PAS adaptée à un profil conservateur.</p>
+        <b>Position recommandée pour profil spéculatif averti :</b> Conserver si en position. Nouvelle entrée : attendre consolidation vers GR log (0,511€) ou 50% log (0,409€) — meilleur ratio R/R. Stop suggéré sous le 38,2% log (0,327€). Les catalyseurs T1 2026 (NOTOXIS, données cohorte 2 SENS-501, CTA SENS-601) sont toujours attendus. Cette valeur N'EST PAS adaptée à un profil conservateur.</p>
       </div>
     </div>
 
     <div class="key-levels" style="margin-top:24px;">
       <div class="level-tag support">
-        <span class="level-tag-label">Support 50% Fibo</span>
-        <span class="level-tag-value">0,606 €</span>
+        <span class="level-tag-label">GR 61,8% log</span>
+        <span class="level-tag-value">0,511 €</span>
       </div>
       <div class="level-tag support">
-        <span class="level-tag-label">Support 38,2% Fibo</span>
-        <span class="level-tag-value">0,501 €</span>
+        <span class="level-tag-label">50% log · Pivot</span>
+        <span class="level-tag-value">0,409 €</span>
       </div>
       <div class="level-tag support">
         <span class="level-tag-label">Prix levée Sanofi</span>
@@ -1513,23 +1506,23 @@
       </div>
       <div class="level-tag stop">
         <span class="level-tag-label">Stop suggéré</span>
-        <span class="level-tag-value">0,370 €</span>
+        <span class="level-tag-value">0,327 €</span>
       </div>
       <div class="level-tag resist">
-        <span class="level-tag-label">Résist. GR 61,8%</span>
-        <span class="level-tag-value">0,711 €</span>
+        <span class="level-tag-label">Résist. 76,4% log</span>
+        <span class="level-tag-value">0,673 €</span>
       </div>
       <div class="level-tag resist">
-        <span class="level-tag-label">Résist. horizontale</span>
+        <span class="level-tag-label">Résist. horiz. rouge</span>
         <span class="level-tag-value">~1,00 €</span>
       </div>
       <div class="level-tag target">
-        <span class="level-tag-label">100% Fibo (haut PRT)</span>
+        <span class="level-tag-label">100% Fibo log</span>
         <span class="level-tag-value">1,053 €</span>
       </div>
       <div class="level-tag target">
-        <span class="level-tag-label">Objectif analyste moyen</span>
-        <span class="level-tag-value">1,70 €</span>
+        <span class="level-tag-label">Objectif consensus</span>
+        <span class="level-tag-value">1,85 €</span>
       </div>
     </div>
   </section>
@@ -1542,7 +1535,7 @@
 <div class="container">
   <footer>
     <p><strong>SENSORION (ALSEN)</strong> · Analyse Forum · Euronext Growth Paris · FR0012596468</p>
-    <p>Rédigé le <strong>14 mars 2026</strong> · Sources : Sensorion IR (communiqués officiels), BusinessWire, Boursorama, Zonebourse, Investing.com, ABCBourse, Les Investisseurs Heureux, Usine Nouvelle, Journal des Entreprises, TradingView, Sensorion Rapport Annuel 2024</p>
+    <p>Rédigé le <strong>14 mars 2026</strong> · Mise à jour technique <strong>15 mars 2026</strong> (Fibonacci log-scale + consensus 1,85€ + SMAs corrigées) · Sources : Sensorion IR (communiqués officiels), BusinessWire, Boursorama, Zonebourse, Investing.com, ABCBourse, Les Investisseurs Heureux, Usine Nouvelle, Journal des Entreprises, TradingView, Sensorion Rapport Annuel 2024</p>
     <p style="margin-top:8px; color:#3a4460;">
       ⚠ <strong>NPC — Pas un Conseil en Placement.</strong> Analyse réalisée à titre personnel et informatif. Pas de relation commerciale avec Sensorion ou ses partenaires. L'auteur peut détenir ou ne pas détenir de positions sur ce titre. Tout investissement en bourse implique un risque de perte en capital. Cette analyse est susceptible d'être incomplète ou erronée — faites vos propres recherches (DYOR). Corrigez-moi si vous constatez une erreur factuelle avec source.
     </p>
